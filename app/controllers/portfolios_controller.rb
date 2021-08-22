@@ -1,10 +1,11 @@
 class PortfoliosController < ApplicationController
 	before_action :set_blog, only: %i[show edit update destroy ]
+	layout "portfolio"
 	def index
 		@portfolio_items = Portfolio.all
 	end
 	def angular
-		@angular_portfolio_items = Portfolio.angular
+		@angular_portfolio_items = Portfolio.angular 
 		
 	end
 	def ruby_on_rails

@@ -1,9 +1,11 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy toggle_status]
-
+  layout "blog"
   # GET /blogs or /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.special_blogs
+    @blogs = Blog.featured_blogs
+    @page_title = "My Blog Portfolios"
   end
 
   # GET /blogs/1 or /blogs/1.json
@@ -13,6 +15,7 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   def new
     @blog = Blog.new
+
   end
 
   # GET /blogs/1/edit
