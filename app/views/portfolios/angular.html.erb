@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<h1>Angular Portfolio</h1>
+<%= link_to "New Portfolio", new_portfolio_path%>
+<p> <%#= new_portfolio_path%></p>
+<p> <%#= new_portfolio_url%></p>
+    <% @angular_portfolio_items.each do |f| %>
+      <%= link_to f.stitle, portfolio_show_path(f) %>
+        
+        <p><%#= f.stitle %></p>
+        <p><%= f.subtitle %></p>
+        <p><%= f.body %></p>
+        <%#= image_tag f.thumb_image  unless f.thumb_image.nil?%>
+        <%= image_tag f.thumb_image if !f.thumb_image.nil? %>
+        <p><%= link_to 'Edit', edit_portfolio_path(f) %></p> 
+        <p><%#= link_to 'Show', portfolio_path(f) %></p>
+        
+        <p><%= link_to 'Delete', portfolio_path(f), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </p>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

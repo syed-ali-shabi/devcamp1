@@ -1,0 +1,28 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-7">
+			<%= image_tag @portfolio_item.main_image%>
+		</div>
+		<div class="col-md-5">
+			<h1>  <%= @portfolio_item.stitle %></h1>
+ 	 		<em> 	<%= @portfolio_item.subtitle %></em>
+  			<p>  <%= @portfolio_item.body %> </p>
+  			<h2>Technologies Used:</h2>
+  			<% @portfolio_item.technologies.each do |form|%>
+  			<p> <%=form.name%> </p> 
+
+  			<%end%>
+
+
+		<br><%= link_to 'Edit', edit_portfolio_path %> </br> 
+		<br> <%= link_to 'Back', portfolios_path %> </br>
+ 		<br>	<%= link_to "View All portfolio items", portfolios_path%></br>
+		</div>	
+	</div>
+</div>
+
+<%#= params.inspect%>
+<%#= session.inspect%>
+<%#= Portfolio.inspect%>
+<%#= Portfolio.find(params[:id]).technologies%>
