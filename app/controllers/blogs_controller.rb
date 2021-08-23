@@ -1,10 +1,12 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy toggle_status]
   layout "blog"
+  access all: [:show, :index], user: {except: [:destroy, :new, :create,:update, :edit]}, site_admin: :all
   # GET /blogs or /blogs.json
   def index
-    @blogs = Blog.special_blogs
-    @blogs = Blog.featured_blogs
+    @blogs = Blog.all
+    # @blogs = Blog.special_blogs
+    # @blogs = Blog.featured_blogs
     @page_title = "My Blog Portfolios"
   end
 

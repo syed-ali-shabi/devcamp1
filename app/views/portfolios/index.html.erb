@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1>Portfolio</h1>
-<%= link_to "New Portfolio", new_portfolio_path%>
+<%= link_to "New Portfolio", new_portfolio_path if logged_in?(:site_admin)%>
 <p> <%#= new_portfolio_path%></p>  
 <p> <%#= new_portfolio_url%></p>
 

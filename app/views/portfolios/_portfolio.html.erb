@@ -5,8 +5,8 @@
         <p><%= portfolio.body %></p>
         <%#= image_tag f.thumb_image  unless f.thumb_image.nil?%>
         <%=  image_tag  portfolio.thumb_image if !portfolio.thumb_image.nil? %>
-        <p><%= link_to 'Edit', edit_portfolio_path(portfolio) %></p> 
+        <p><%= link_to 'Edit', edit_portfolio_path(portfolio) if logged_in?(:site_admin) %></p> 
         <p><%#= link_to 'Show', portfolio_path(f) %></p>
         
-        <p><%= link_to 'Delete', portfolio_path(portfolio), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <p><%= link_to 'Delete', portfolio_path(portfolio), method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin)%></td>
       </p>
