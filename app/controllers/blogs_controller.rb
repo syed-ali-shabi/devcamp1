@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
   access all: [:show, :index], user: {except: [:destroy, :new, :create,:update, :edit, :toggle_status]}, site_admin: :all
   # GET /blogs or /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.page(params[:page]).per(5) 
     # @blogs = Blog.special_blogs
     # @blogs = Blog.featured_blogs
     @page_title = "My Blog Portfolios"
